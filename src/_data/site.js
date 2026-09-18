@@ -4,7 +4,7 @@ export default {
   tagline: "Notes and arguments from two people with no editor, no deadline and no side.",
   description: "An independent news and commentary blog written by two friends.",
   // Set this to your real domain before launch — the RSS feed needs it.
-  url: "https://nomansland.example",
+  url: "https://nomanland.netlify.app/",
   language: "en",
   authors: {
     cloudy: {
