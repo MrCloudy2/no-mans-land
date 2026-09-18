@@ -1,0 +1,42 @@
+---
+layout: base.njk
+title: Archive
+permalink: /archive/
+---
+
+<div class="rows">
+  <div class="row">
+    <div class="rail"></div>
+    <div class="body">
+      <h1 class="article__title">Everything we have written</h1>
+      <p class="article__standfirst">Newest first. {{ collections.writing.length }} pieces so far.</p>
+    </div>
+  </div>
+
+  {% set years = [] %}
+  {% for post in collections.writing %}
+    {% set y = post.date | year %}
+    {% if y not in years %}{% set years = (years.push(y), years) %}{% endif %}
+  {% endfor %}
+
+  {% for y in years %}
+  <div class="row" style="margin-top: 2.5rem;">
+    <div class="rail"><span class="archive-year">{{ y }}</span></div>
+    <div class="body">
+      <ul class="archive-list">
+        {% for post in collections.writing %}
+          {% if (post.date | year) == y %}
+          <li>
+            <time datetime="{{ post.date | isoDate }}">{{ post.date | shortDate }}</time>
+            <span>
+              <a href="{{ post.url }}">{{ post.data.title }}</a>
+              <small>{{ site.authors[post.data.author].name }}</small>
+            </span>
+          </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endfor %}
+</div>

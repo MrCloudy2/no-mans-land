@@ -1,0 +1,14 @@
+{
+  "name": "no-mans-land",
+  "version": "1.0.0",
+  "description": "No Man's Land \u2014 an independent news and commentary blog",
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "build:drafts": "BUILD_DRAFTS=true eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

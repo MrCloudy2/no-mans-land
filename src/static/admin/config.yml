@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+# Change `repo` to your GitHub owner/repository once the repo exists.
+# Nothing here works until the site is in git and deployed.
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/no-mans-land
+  branch: main
+
+media_folder: src/images
+public_folder: /images
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: src/posts
+    create: true
+    extension: md
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: [date, title]
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Standfirst, name: standfirst, widget: text, hint: One or two sentences under the headline. Also used in the RSS feed. }
+      - label: Author
+        name: author
+        widget: select
+        default: cloudy
+        options:
+          - { label: Cloudy, value: cloudy }
+          - { label: Tilen, value: tilen }
+      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - { label: Draft, name: draft, widget: boolean, default: true, hint: Drafts appear on the review site only. Switch this off to publish. }
+      - { label: Body, name: body, widget: markdown }

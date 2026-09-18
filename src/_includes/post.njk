@@ -1,0 +1,25 @@
+---
+layout: base.njk
+---
+
+<article class="rows">
+  <div class="row">
+    <div class="rail">
+      <span class="rail__date">{{ date | shortDate }}</span>
+      <span class="rail__who">{{ date | year }}</span>
+    </div>
+    <div class="body">
+      {% if draft %}<p class="draft-flag">Draft — not published on the public site</p>{% endif %}
+      <h1 class="article__title">{{ title }}</h1>
+      {% if standfirst %}<p class="article__standfirst">{{ standfirst }}</p>{% endif %}
+      <p class="article__meta">
+        {{ site.authors[author].name }}, {{ date | readableDate }}. About {{ content | readingTime }} minutes.
+      </p>
+      <div class="prose">{{ content | safe }}</div>
+      <div class="article__foot">
+        <p><b>{{ site.authors[author].name }}</b> {{ site.authors[author].bio }}</p>
+        <p><a href="/archive/">All pieces</a></p>
+      </div>
+    </div>
+  </div>
+</article>

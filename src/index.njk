@@ -1,0 +1,34 @@
+---
+layout: base.njk
+---
+
+<div class="rows">
+  {% if collections.writing.length == 0 %}
+  <div class="row">
+    <div class="rail"></div>
+    <div class="body">
+      <h2 class="entry__title">Nothing published yet</h2>
+      <p class="entry__standfirst">
+        Add a markdown file to <code>src/posts/</code> and it appears here. Copy an existing one to
+        get the front matter right.
+      </p>
+    </div>
+  </div>
+  {% endif %}
+
+  {% for post in collections.writing %}
+  {% if not loop.first %}<div class="entry-sep"></div>{% endif %}
+  <article class="row entry">
+    <div class="rail">
+      <span class="rail__date">{{ post.date | shortDate }}</span>
+      <span class="rail__who">{{ site.authors[post.data.author].name }}</span>
+    </div>
+    <div class="body">
+      <h2 class="entry__title"><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      {% if post.data.standfirst %}
+      <p class="entry__standfirst">{{ post.data.standfirst }}</p>
+      {% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</div>
