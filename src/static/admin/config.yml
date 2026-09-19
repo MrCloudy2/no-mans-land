@@ -6,6 +6,7 @@ backend:
   name: github
   repo: MrCloudy2/no-mans-land
   branch: main
+  base_url: https://sveltia-cms-auth.rokoblak12.workers.dev
 
 media_folder: src/images
 public_folder: /images
