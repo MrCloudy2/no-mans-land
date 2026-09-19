@@ -4,7 +4,7 @@
 # Nothing here works until the site is in git and deployed.
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/no-mans-land
+  repo: MrCloudy2/no-mans-land
   branch: main
 
 media_folder: src/images
